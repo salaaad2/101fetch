@@ -2,14 +2,16 @@
 time=$(date +%H:%M)
 uptime=$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')
 uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+c0="$(tput setaf 4)"
+nc="$(tput sgr0)"
 
 cat <<EOF
 ${c0}             LE - /           
 ${c0}                 /            
-${c0}       .::    .:/ .      .::  ${nc}user   : ${USER} @ ${uname}
-${c0}    +:+:+   +:    +:  +:+:+   
-${c0}     +:+   +:    +:    +:+    ${lc}time   : ${time}
-${c0}    #+#   #+    #+    #+#     ${lc}uptime : ${uptime}
+${c0}       .::    .:/ .      .::  user   : ${nc}${USER}@${uname}
+${c0}    +:+:+   +:    +:  +:+:+            
+${c0}     +:+   +:    +:    +:+    time   : ${nc}${time}
+${c0}    #+#   #+    #+    #+#     uptime : ${nc}${uptime}
 ${c0}   #+#   ##    ##    #+#      
 ${c0}  ###    #+. /#+    ###    
 ${c0}            /                 
