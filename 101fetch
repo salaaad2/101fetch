@@ -1,0 +1,17 @@
+#!/bin/sh
+time=$(date +”%H:%M”)
+uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+
+cat <<EOF
+${c0}             LE - /           
+${c0}                 /            
+${c0}       .::    .:/ .      .::  ${nc}user   : ${USER}
+${c0}    +:+:+   +:    +:  +:+:+   
+${c0}     +:+   +:    +:    +:+    ${lc}time   : ${time}
+${c0}    #+#   #+    #+    #+#     ${lc}uptime : ${uptime}
+${c0}   #+#   ##    ##    #+#      
+${c0}  ###    #+. /#+    ###    
+${c0}            /                 
+${c0}           /                  
+${c0}          /                  
+EOF
