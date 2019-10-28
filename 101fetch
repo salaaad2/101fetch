@@ -1,11 +1,12 @@
-#!/bin/sh
-time=$(date +”%H:%M”)
-uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+#!/bin/bash
+time=$(date +%H:%M)
+uptime=$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')
+uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
 
 cat <<EOF
 ${c0}             LE - /           
 ${c0}                 /            
-${c0}       .::    .:/ .      .::  ${nc}user   : ${USER}
+${c0}       .::    .:/ .      .::  ${nc}user   : ${USER} @ ${uname}
 ${c0}    +:+:+   +:    +:  +:+:+   
 ${c0}     +:+   +:    +:    +:+    ${lc}time   : ${time}
 ${c0}    #+#   #+    #+    #+#     ${lc}uptime : ${uptime}
