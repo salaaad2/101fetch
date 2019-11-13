@@ -1,14 +1,19 @@
 # 101fetch
 
+## 101fetch displays 
+
+* The logo
+* The current time
+* Your uptime
+
+
 ![101fetch in action](https://github.com/salaaad2/101fetch/blob/master/101fetch.png)
 
-screenfetch but for 101 school
-
 # Installation
-* move 101fetch into ~/brew/bin/
-* add the following lines to .zshrc 
+* clone this repository anywhere you want :^)
+* add the following lines to .zshrc
 ```
 clear
-101fetch
+/path/to/101fetch
 ```
 * you're good to go 
