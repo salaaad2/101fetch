@@ -13,12 +13,14 @@
 
 ## Installation
 
-Open a terminal and run the **following commands**:
+Open a terminal and run the **following command**:
 ```shell
 git clone https://github.com/salaaad2/101fetch.git
+cd 101fetch
+./101fetch
 ```
 
-Then the **following lines** to `.zshrc`
+Then add the **following lines** to `.zshrc`
 
 ```shell
 clear
