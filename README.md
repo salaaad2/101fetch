@@ -1,6 +1,6 @@
 # 101fetch
 
-101 fetch is a small script inspired by [neofetch](https://github.com/dylanaraps/neofetch) designed for [101 school](https://www.le-101.fr/) students.
+101 fetch is a small script inspired by [neofetch](https://github.com/dylanaraps/neofetch) designed for [le 101](https://www.le-101.fr/) students.
 
 ## 101fetch displays 
 
