@@ -1,6 +1,6 @@
 #!/bin/bash
 time=$(date +%H:%M)
-uptime=$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')
+uptime=$(w | grep console | awk '{print $5}')
 uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
 c0="$(tput setaf 4)"
 nc="$(tput sgr0)"
