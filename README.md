@@ -11,7 +11,7 @@
 
 # Installation
 * clone this repository anywhere you want :^)
-* add the following lines to .zshrc
+* add the *following lines* to `.zshrc`
 ```
 clear
 /path/to/101fetch
