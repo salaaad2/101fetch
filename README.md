@@ -20,7 +20,7 @@ cd 101fetch
 ./101fetch
 ```
 
-Then append the **following lines** at the end of your `.zshrc` to get it running each time you open a new terminal
+Then append the **following lines** at the end of your `.zshrc` to get it running each time you open a new terminal:
 
 ```shell
 clear
