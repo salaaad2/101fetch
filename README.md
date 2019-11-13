@@ -28,5 +28,3 @@ clear
 ```
 
 You're good to go!
-
-Test
