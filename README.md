@@ -1,5 +1,7 @@
 # 101fetch
 
+101 fetch is a small script inspired by [neofetch](https://github.com/dylanaraps/neofetch) designed for [101 school](https://www.le-101.fr/) students.
+
 ## 101fetch displays 
 
 * The logo
@@ -9,11 +11,18 @@
 
 ![101fetch in action](https://github.com/salaaad2/101fetch/blob/master/101fetch.png)
 
-# Installation
-* clone this repository anywhere you want :^)
-* add the *following lines* to `.zshrc`
+## Installation
+
+Open a terminal and run the **following commands**:
+```shell
+git clone https://github.com/salaaad2/101fetch.git
 ```
+
+Then the **following lines** to `.zshrc`
+
+```shell
 clear
 /path/to/101fetch
 ```
-* you're good to go 
+
+You're good to go!
