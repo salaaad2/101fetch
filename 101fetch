@@ -1,7 +1,7 @@
 #!/bin/sh
 
 hou=0
-w | grep console | awk '{print $5}' | grep :
+w | grep console | awk '{print $5}' | grep : > /dev/null 2>&1
 ret=$?
 if [ $ret -eq 0 ]; then
 	min=$(w | grep console | awk '{print $5}' | cut -f 2 -d : )
@@ -13,7 +13,11 @@ uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
 time=$(date +%H:%M)
 if [ "$hou" -lt 10 ]; then
 	if [ "$min" -lt 10 ]; then
-		uptime="0$hou:0$min"
+		if [ "$hou" -lt 1 ]; then
+			uptime="0$hou:0$min"
+		else
+			uptime="0$hou:$min"
+		fi
 	else
 		uptime="0$hou:$min"
 	fi
