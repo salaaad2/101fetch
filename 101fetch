@@ -1,14 +1,29 @@
 #!/bin/sh
 
-time=$(date +%H:%M)
-if [ $(w | grep console | awk '{print $5}' | wc -c) -lt 4 ]; then
-	uptime=$(echo "00:"`w | grep console | awk '{print $5}'`)
-elif [ $(w | grep console | awk '{print $5}' | wc -c) -lt 3]; then
-	uptime=$(echp "00:0"`w | grep console | awk '{print $5}'`)
+hou=0
+w | grep console | awk '{print $5}' | grep :
+ret=$?
+if [ $ret -eq 0 ]; then
+	min=$(w | grep console | awk '{print $5}' | cut -f 2 -d : )
+	hou=$(w | grep console | awk '{print $5}' | cut -f 1 -d : )
 else
-	uptime=$(w | grep console | awk '{print $5}')
+	min=$(w | grep console | awk '{print $5}')
 fi
 uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+time=$(date +%H:%M)
+if [ "$hou" -lt 10 ]; then
+	if [ "$min" -lt 10 ]; then
+		uptime="0$hou:0$min"
+	else
+		uptime="0$hou:$min"
+	fi
+else
+	if [ "$min" -lt 10 ]; then
+		uptime="$hou:0$min"
+	else
+		uptime="$hou:$min"
+	fi
+fi
 c0="$(tput setaf 4)"
 nc="$(tput sgr0)"
 cat <<EOF
