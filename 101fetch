@@ -1,19 +1,23 @@
-#!/bin/bash
+#!/bin/sh
+
 time=$(date +%H:%M)
-uptime=$(w | grep console | awk '{print $5}')
+if [ $(w | grep console | awk '{print $5}' | wc -c) -lt 4 ]; then
+	uptime=$(echo "00:"`w | grep console | awk '{print $5}'`)
+else
+	uptime=$(w | grep console | awk '{print $5}')
+fi
 uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
 c0="$(tput setaf 4)"
 nc="$(tput sgr0)"
-
 cat <<EOF
-${c0}             LE - /           
-${c0}                 /            
+${c0}             LE - /
+${c0}                 /
 ${c0}       .::    .:/ .      .::  user   : ${nc}${USER}@${uname}
-${c0}    +:+:+   +:    +:  +:+:+            
+${c0}    +:+:+   +:    +:  +:+:+
 ${c0}     +:+   +:    +:    +:+    time   : ${nc}${time}
 ${c0}    #+#   #+    #+    #+#     uptime : ${nc}${uptime}
-${c0}   #+#   ##    ##    #+#      
-${c0}  ###    #+. /#+    ###    
-${c0}            /                 
-${c0}           /                  
+${c0}   #+#   ##    ##    #+#
+${c0}  ###    #+. /#+    ###
+${c0}            /
+${c0}           /
 EOF
