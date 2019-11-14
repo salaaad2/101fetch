@@ -3,6 +3,8 @@
 time=$(date +%H:%M)
 if [ $(w | grep console | awk '{print $5}' | wc -c) -lt 4 ]; then
 	uptime=$(echo "00:"`w | grep console | awk '{print $5}'`)
+elif [ $(w | grep console | awk '{print $5}' | wc -c) -lt 3]; then
+	uptime=$(echp "00:0"`w | grep console | awk '{print $5}'`)
 else
 	uptime=$(w | grep console | awk '{print $5}')
 fi
