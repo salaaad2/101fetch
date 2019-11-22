@@ -9,6 +9,9 @@ if [ $ret -eq 0 ]; then
 else
 	min=$(w | grep console | awk '{print $5}')
 fi
+if [ $(w | grep console | awk '{print $5}') = "-" ] ; then
+	min=0
+fi
 uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
 time=$(date +%H:%M)
 if [ "$hou" -lt 10 ]; then
